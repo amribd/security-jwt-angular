@@ -1,1 +1,13 @@
-<app-header></app-header>
+<app-header (sidebarToggeled)="sidebarOpened = !sidebarOpened"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sidebarOpened" [class.big]="sidebarOpened" [class.small]="!sidebarOpened">
+        <app-side-bar [mediaSM]="mediaSM"></app-side-bar>
+    </mat-drawer>
+    <mat-drawer-content>
+        
+            <router-outlet></router-outlet>
+        
+
+    </mat-drawer-content>
+</mat-drawer-container>

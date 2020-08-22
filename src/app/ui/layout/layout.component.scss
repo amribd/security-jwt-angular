@@ -1,0 +1,22 @@
+mat-drawer-container {
+    height: 100vh;
+}
+
+mat-drawer {
+    width: 260px;
+    transition: all 1s ease 0s;
+}
+//  mat-drawer:hover {
+//     width: 260px;
+//    }
+
+mat-drawer-content {
+    padding: 20px;
+}
+
+.big {
+    width: 260px;
+}
+.small {
+    width: 0px;
+}
