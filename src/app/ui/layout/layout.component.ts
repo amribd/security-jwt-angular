@@ -19,9 +19,7 @@ export class LayoutComponent implements OnInit {
     this.mediaObserver.media$.subscribe(
       (change: MediaChange) => {
         change.mqAlias === 'sm' ? this.sidebarOpened = false: this.sidebarOpened = true;
-        console.log(change);
-        console.log(this.mediaSM);
-      } 
+        } 
     )
   }
 

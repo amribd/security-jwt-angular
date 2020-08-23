@@ -1,2 +1,13 @@
 <p>items-list works!</p>
 <p>Just do it</p>
+
+    <mat-nav-list>
+        <a mat-list-item>
+            <span routerLink="objects/123/amri">object</span>
+        </a>
+        
+        <a mat-list-item>
+            <span routerLink="/items">items</span>
+        </a>
+    </mat-nav-list>
+<button (click)="navigate()">navigate</button>

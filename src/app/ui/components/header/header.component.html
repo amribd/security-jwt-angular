@@ -4,10 +4,11 @@
             <button mat-button>Logo App</button>
             <button mat-button><mat-icon (click)="toggleSidebar()">reorder</mat-icon></button>
         </div>
-        <div>
-            <button mat-icon-button class="button">Home</button>
-            <button mat-icon-button class="button">Service</button>
-            <button mat-icon-button class="button">Acount</button>
+        <div >
+            <span  class="button" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</span>
+            <span  class="button" routerLink="/projects" routerLinkActive="active">Projects</span>
+            <span  class="button" routerLink="/items" routerLinkActive="active">Items</span>
+            <span  class="button" routerLink="/forms" routerLinkActive="active">Forms</span>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

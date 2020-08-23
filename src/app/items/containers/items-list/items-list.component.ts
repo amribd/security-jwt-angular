@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-items-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  navigate() {
+    console.log(this.route);
+    this.router.navigate(['/forms']);
   }
 
 }

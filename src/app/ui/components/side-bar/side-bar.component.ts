@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,9 +10,10 @@ export class SideBarComponent implements OnInit {
 
   @Input() mediaSM: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
 
 }
