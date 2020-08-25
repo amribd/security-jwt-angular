@@ -9,11 +9,3 @@ export function ForbidenControl(): ValidatorFn {
   }
 }
 
-// @Directive({
-// selector: '[appForbiden]'
-// })
-// export class ForbidenDirective {
-
-//   constructor() { }
-
-// }

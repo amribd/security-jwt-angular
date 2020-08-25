@@ -1,6 +1,7 @@
 import { ForbidenControl } from 'src/app/shared/directives/forbiden.directive';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, Form, FormBuilder } from '@angular/forms';
+import { rangeNumber } from 'src/app/shared/directives/range.directive';
 
 @Component({
   selector: 'app-basic-form',
@@ -35,7 +36,7 @@ export class BasicFormComponent implements OnInit {
         firstName: ['first', [Validators.required, ForbidenControl()]],
         lastName: ['', [Validators.required, Validators.email]]
       }),
-      age: ['', [Validators.required]],
+      age: ['', [Validators.required, rangeNumber()]],
       hobbies: this.fb.array([])
     });
   }

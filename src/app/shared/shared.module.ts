@@ -1,11 +1,10 @@
-import { ForbidenDirective } from './directives/forbiden.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
-  declarations: [ForbidenDirective],
+  declarations: [],
   imports: [
     CommonModule
   ]
