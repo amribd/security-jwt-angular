@@ -1,9 +1,10 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { BasicFormComponent } from './containers/basic-form/basic-form.component';
+import { MaterialsModule } from './../materials/materials.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FormsRoutingModule } from './forms-routing.module';
-import { BasicFormComponent } from './containers/basic-form/basic-form.component';
-import { MaterialsModule } from '../materials/materials.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MaterialsModule } from '../materials/materials.module';
   imports: [
     CommonModule,
     FormsRoutingModule,
-    MaterialsModule
+    MaterialsModule,
+    ReactiveFormsModule
   ]
 })
 export class FormsModule { }
