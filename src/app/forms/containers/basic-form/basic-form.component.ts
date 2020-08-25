@@ -1,5 +1,6 @@
+import { ForbidenControl } from 'src/app/shared/directives/forbiden.directive';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray, Form } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray, Form, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-form',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl, Validators, FormArray, Form } from '@angular/fo
 })
 export class BasicFormComponent implements OnInit {
   forms: FormGroup;
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   get firstName() { return this.forms.get('user.firstName'); }
   get lastName() { return this.forms.get('user.lastName'); }
@@ -16,15 +17,27 @@ export class BasicFormComponent implements OnInit {
   get hobbies() { return this.forms.get('hobbies'); }
 
   ngOnInit() {
-    this.forms = new FormGroup({
-      'user': new FormGroup({
-        'firstName': new FormControl('null', [Validators.required]),
-        'lastName': new FormControl('null', [Validators.required, Validators.email]),
-      }),
-      'age': new FormControl(Validators.required),
-      'hobbies': new FormArray([])
-    });
+    // this.forms = new FormGroup({
+    //   'user': new FormGroup({
+    //     'firstName': new FormControl('null', [Validators.required]),
+    //     'lastName': new FormControl('null', [Validators.required, Validators.email]),
+    //   }),
+    //   'age': new FormControl(Validators.required),
+    //   'hobbies': new FormArray([])
+    // });
+    this.initForm();
 
+  }
+
+  initForm() {
+    this.forms = this.fb.group({
+      user: this.fb.group({
+        firstName: ['first', [Validators.required, ForbidenControl()]],
+        lastName: ['', [Validators.required, Validators.email]]
+      }),
+      age: ['', [Validators.required]],
+      hobbies: this.fb.array([])
+    });
   }
 
   submit() {
