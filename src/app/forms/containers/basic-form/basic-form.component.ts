@@ -39,7 +39,10 @@ export class BasicFormComponent implements OnInit {
       age: ['', [Validators.required, rangeNumber()]],
       hobbies: this.fb.array([])
     });
-  }
+
+    this.global();
+    
+    }
 
   submit() {
     const obj = {
@@ -55,6 +58,31 @@ export class BasicFormComponent implements OnInit {
   addHobby() {
     const control = new FormControl(null);
     (<FormArray>this.hobbies).push(control);
+  }
+
+  splitNumber(nbr: number) {
+    const tousands = Math.floor(nbr / 1000);
+    const hundreds =  Math.floor((nbr - tousands * 1000) / 100);
+    const tens = Math.floor((nbr - (tousands*1000 + hundreds*100)) / 10);
+    const units = nbr - (tousands*1000 + hundreds*100 + tens*10);
+    const sum = nbr + tousands + hundreds + tens + units;  
+    // console.log(`tousand: ${tousands} hundreds: ${hundreds} tens: ${tens} units: ${units}`);
+    return sum;
+  }
+
+  joined(nbr1, nbr2) {
+    do{
+     nbr1 =  this.splitNumber(nbr1);
+     nbr2 = this.splitNumber(nbr2);
+    }while(nbr1 !== nbr2);
+    // const joinedNumber = nbr2;
+    console.log(nbr1 + " " + nbr2);
+    // return joinedNumber;
+  }
+
+  global() {
+    var glob = 3;
+    console.log(glob);
   }
 
 }
