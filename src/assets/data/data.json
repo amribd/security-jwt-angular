@@ -1,0 +1,44 @@
+[
+    {
+        "firstName": "Rack",
+        "lastName": "Jackon",
+        "gender": "man",
+        "age": 24,
+        "address": {
+            "streetAddress": "126",
+            "city": "San Jone",
+            "state": "CA",
+            "postalCode": "394221"
+        },
+        "phoneNumbers": [
+            { "type": "home", "number": "7383627627" },
+            { "type": "fix", "number": "7353624621" }
+        ],
+        "conges": [
+            ["id", "1234"],
+            ["id", "2143"],
+            ["id", "5645"]
+        ]
+    },
+    {
+        "firstName": "Rack",
+        "lastName": "Jackon",
+        "gender": "man",
+        "age": 24,
+        "address": {
+            "streetAddress": "126",
+            "city": "San Jone",
+            "state": "CA",
+            "postalCode": "394221"
+        },
+        "phoneNumbers": [
+            { "type": "home", "number": "7383627627" },
+            { "type": "fix", "number": "7353624621" }
+        ],
+        "conges": [
+            ["id", "1234"],
+            ["id", "2143"],
+            ["id", "5645"]
+        ]
+    }
+]
