@@ -1,14 +1,27 @@
-<p appHighlight [backgroungColor]="'blue'" [Color]="'red'">items-list works!</p>
-<p>Just do it</p>
 
-    <mat-nav-list>
-        <a mat-list-item>
-            <span routerLink="objects/123/amri">object</span>
-        </a>
-        
-        <a mat-list-item>
-            <span routerLink="/items">items</span>
-        </a>
-    </mat-nav-list>
-<button (click)="navigate()">navigate</button>
-<button mat-button (click)="date()">date</button>
+  
+      <div class="example-container mat-elevation-z8">
+        <table [dataSource]="items" mat-table matSort>
+  
+          
+  
+          <ng-container matColumnDef="name" sticky>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+            <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="description">
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Description</th>
+            <td *matCellDef="let element" mat-cell> {{element.description}} </td>
+          </ng-container>
+  
+  
+    
+  
+          <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+          <tr  *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[25,50,100]" [pageSize]="25" showFirstLastButtons></mat-paginator>
+      </div>
+   

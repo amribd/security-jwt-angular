@@ -1,8 +1,11 @@
+import { IItems } from './../../../shared/models/i-items';
+import { map } from 'rxjs/operators';
 import { ItemsService } from './../../../shared/services/items.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { element } from 'protractor';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-items-list',
@@ -11,33 +14,33 @@ import { element } from 'protractor';
 })
 export class ItemsListComponent implements OnInit {
 
+  public items: MatTableDataSource<IItems>;
+  public displayedColumns: Array<string>;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
   constructor(
               private router: Router,
               private route: ActivatedRoute,
-              private itemService: ItemsService) { }
+              private itemService: ItemsService) {
+  this.displayedColumns = ['name', 'description'];
+               }
 
   ngOnInit() {
-    this.getData();
+    this.getItems();
+    this.itemService.getIndex().subscribe((res) => console.log(res));
   }
 
-  getData() {
-    this.itemService.getData().subscribe((res) => {
+  getItems() {
+    this.itemService.getItems().subscribe((res: any) => {
       console.log(res);
-    })
+      this.items = new MatTableDataSource(res);
+      this.items.paginator = this.paginator;
+      this.items.sort = this.sort;
+    });
   }
 
-  navigate() {
-    console.log(this.route);
-    this.router.navigate(['/forms']);
-  }
+ 
 
-  date() {
-    const obj = {
-      firstName: 'omar',
-      lastName: 'amri',
-      age: 10,
-    };
-    const entries = Object.entries(obj)
-    }
-
+  
 }
