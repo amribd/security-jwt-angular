@@ -20,6 +20,7 @@ import {
   MatDividerModule,
   MatListModule,
   MatCardModule,
+  
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -48,8 +49,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
 
+
+    
+    
   ],
   exports: [
     MatPaginatorModule,

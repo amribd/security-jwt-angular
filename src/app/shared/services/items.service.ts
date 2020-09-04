@@ -15,9 +15,20 @@ export class ItemsService {
     return this.http.get<IItems>(this.link + 'items');
   }
 
-  getIndex(): Observable<any> {
-    return this.http.get<any>(this.link);
+  postItem(item: IItems): Observable<IItems> {
+    return this.http.post<IItems>(this.link + 'item', item);
   }
 
+  deleteItem(id): Observable<any> {
+    return this.http.delete<any>(this.link + 'item/' + id);
+  }
+
+  updateItem(item: IItems, id: number): Observable<any> {
+    return this.http.put<any>(this.link + 'item/' + id, item);
+  }
+
+  getItemById(id: number): Observable<any> {
+    return this.http.get<any>(this.link + 'item/' + id);
+  }
   
 }
