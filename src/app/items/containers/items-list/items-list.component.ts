@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { DeleteDialogComponent } from './../../../shared/dialog/delete-dialog/delete-dialog.component';
 import { IItems } from './../../../shared/models/i-items';
 import { map } from 'rxjs/operators';
@@ -24,7 +25,8 @@ export class ItemsListComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private itemService: ItemsService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private toastr: ToastrService) {
   this.displayedColumns = ['id', 'name', 'description', 'actions'];
                }
 
@@ -34,7 +36,6 @@ export class ItemsListComponent implements OnInit {
 
   getItems() {
     this.itemService.getItems().subscribe((res: any) => {
-      console.log(res);
       this.items = new MatTableDataSource(res);
       this.items.paginator = this.paginator;
       this.items.sort = this.sort;
@@ -53,12 +54,15 @@ export class ItemsListComponent implements OnInit {
 
   deleteItem(id) {
     this.openDialog('Are you sure to delete this Item').afterClosed().subscribe((res) => {
-      this.router.navigate(['/items']);
       if(res){
-        // this.itemService.deleteItem(id).subscribe();
+        this.itemService.deleteItem(id).subscribe((item) => {
+          this.toastr.success('The item has been deleted', item.name);
+        },
+        (err) => {
+          this.toastr.error('An error occured', err);
+        });
       }
-      console.log(res);
-    });
+      });
     }
 
   openDialog(str: string) {

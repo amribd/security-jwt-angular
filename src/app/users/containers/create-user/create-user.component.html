@@ -1,0 +1,68 @@
+<div class="row justify-content-around">
+    <div class="col-md-8">
+        <mat-card class="user-card">
+            <mat-card-title>Creation d'un User</mat-card-title>
+            <mat-card-content>
+                <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+
+
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="field" floatLabel="auto">
+                                <mat-label>FirstName</mat-label>
+                                <input matInput formControlName="firstName">
+                                <mat-icon matSuffix>account_circle</mat-icon>
+                                </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="field" floatLabel="never">
+                                <mat-label>LastName</mat-label>
+                                <input formControlName="lastName" matInput>
+                                <mat-icon matSuffix>email</mat-icon>
+                                </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="field" floatLabel="never">
+                                <mat-label>userName</mat-label>
+                                <input formControlName="userName" matInput>
+                                <mat-icon matSuffix>email</mat-icon>
+                                </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="field" floatLabel="never">
+                                <mat-label>password</mat-label>
+                                <input formControlName="password" matInput>
+                                <mat-icon matSuffix>password</mat-icon>
+                                </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="field" floatLabel="never">
+                                <mat-label>confirmation password</mat-label>
+                                <input formControlName="confirmationPassword" matInput>
+                                <mat-icon matSuffix>password</mat-icon>
+                                </mat-form-field>
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col offset-9">
+
+                            <button  mat-raised-button type="submit">submit</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

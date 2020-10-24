@@ -1,10 +1,14 @@
 <div class="d-flex justify-content-between">
-    <h2 mat-dialog-title>Confirmation de suppression</h2>
+    <h2 mat-dialog-title *ngIf="data.str">Confirmation de suppression d'Item</h2>
+    <h2 mat-dialog-title *ngIf="data.confirm">Confirmation de suppression de produit</h2>
     <mat-icon (click)="closeDialog()" color="warn" style="cursor: pointer;">close</mat-icon>
 </div>
 <mat-dialog-content>
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning" role="alert" *ngIf="data.str">
         {{data.str}}
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="data.confirm">
+        {{data.confirm}}
     </div>
 </mat-dialog-content>
 <hr/>
