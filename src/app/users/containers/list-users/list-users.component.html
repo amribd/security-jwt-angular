@@ -8,7 +8,7 @@
   </div>
 
       <div class="example-container mat-elevation-z8">
-        <table [dataSource]="items" mat-table matSort>
+        <table [dataSource]="userList" mat-table matSort>
   
           
           <ng-container matColumnDef="id" sticky>
@@ -32,9 +32,9 @@
             <td *matCellDef="let element" mat-cell> {{element.userName}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="password">
-            <th *matHeaderCellDef mat-header-cell mat-sort-header> password</th>
-            <td *matCellDef="let element" mat-cell> {{element.password}} </td>
+          <ng-container matColumnDef="role">
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Role</th>
+            <td *matCellDef="let element" mat-cell> {{element.role}} </td>
           </ng-container>
   
 
