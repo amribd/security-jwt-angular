@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   url: 'http://localhost:8086/api',
   baseHost: 'http://localhost:8086',
-  wsHost: 'ws://localhost:8086/socket',
-  wssHost: 'wss://localhost:8086/socket',
+  wsHost: 'ws://localhost:8086/stomp',
+  wssHost: 'wss://localhost:8086/stomp',
   token: ''
 };
 

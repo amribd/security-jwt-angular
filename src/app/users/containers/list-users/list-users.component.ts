@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./list-users.component.scss']
 })
 export class ListUsersComponent implements OnInit {
-
+  public count;
   public userList: MatTableDataSource<IUser>;
   @ViewChild(MatPaginator, {static: false}) public paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) public sort: MatSort;
@@ -25,6 +25,15 @@ export class ListUsersComponent implements OnInit {
       this.userList.paginator = this.paginator;
       this.userList.sort = this.sort;
     });
+    this.getNumberOfUsers();
+  }
+
+  getNumberOfUsers() {
+    this.usersService.numberOfUsers.asObservable().subscribe(
+      (count) => {
+        this.count = count;
+      }
+    );
   }
 
 

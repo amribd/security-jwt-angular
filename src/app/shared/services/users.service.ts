@@ -1,7 +1,7 @@
 import { AuthService } from './auth.service';
 import { environment } from './../../../environments/environment';
 import { IUser } from './../models/i-users';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from "@auth0/angular-jwt";
@@ -10,7 +10,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class UsersService {
-
+  public numberOfUsers: BehaviorSubject<any> = new BehaviorSubject('any');
   public basePath = environment.url;
   public token;
   constructor(
@@ -35,5 +35,9 @@ export class UsersService {
 
   public saveUser(user): Observable<any> {
     return this.http.post<any>(this.basePath + '/user/user', user);
+  }
+
+  public countUsers(): Observable<any> {
+    return this.http.get<any>(this.basePath + '/user/count');
   }
 }
