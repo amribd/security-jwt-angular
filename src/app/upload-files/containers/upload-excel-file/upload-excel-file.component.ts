@@ -26,7 +26,8 @@ public form: FormGroup;
   }
 
   uploadFile() {
-    this.uploadService.uploadFile(this.excelFile);
+    const file = this.form.get("fichier").value.files[0];
+    this.uploadService.uploadExcel(file);
   }
 
 }

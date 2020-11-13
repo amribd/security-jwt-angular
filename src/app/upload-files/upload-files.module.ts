@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
 import { UploadFilesRoutingModule } from './upload-files-routing.module';
 import { UploadExcelFileComponent } from './containers/upload-excel-file/upload-excel-file.component';
+import { UploadImageComponent } from './containers/upload-image/upload-image.component';
 
 
 @NgModule({
-  declarations: [UploadExcelFileComponent],
+  declarations: [UploadExcelFileComponent, UploadImageComponent],
   imports: [
     CommonModule,
     UploadFilesRoutingModule,

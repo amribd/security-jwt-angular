@@ -1,0 +1,37 @@
+<form  [formGroup]="imageUpload" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <mat-form-field  appearance="outline">
+            <input  formControlName="title" matInput>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <ngx-mat-file-input formControlName="image" placeholder="Basic Input" (change)="checkFormat()"
+                    ></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+            <mat-error *ngIf="!image.valid && image.touched">
+                <span *ngIf="image.errors.invalidFile">le fichier est invalid</span>
+            </mat-error>
+          </mat-form-field>
+    </div>
+    <button class="btn btn-primary" type="submit">SUBMIT</button>
+</form>
+
+<form  [formGroup]="imageGet" (ngSubmit) = "getImage()">
+    <div class="row">
+        <mat-form-field>
+            <input formControlName="name" matInput>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" type="submit">get</button>
+    </div>
+</form>
+
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=retrievedImage>
+            <img [src]="retrievedImage">
+        </div>
+    </div>
+</div>

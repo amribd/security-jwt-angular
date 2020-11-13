@@ -65,7 +65,7 @@ export class AuthService {
     return of(!this.jwtHelperService.isTokenExpired()).pipe(
       tap(allow => {
         if (allow) {
-          this.toastr.success("isAuthenticated works");
+          
         } else {
           this.toLogin();
         }
