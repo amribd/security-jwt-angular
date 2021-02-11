@@ -5,8 +5,9 @@ import { NgModule } from '@angular/core';
 import { FormGuardGuard } from './forms/guards/form-guard.guard';
 
 const routes: Routes = [
-    {path: 'auth', loadChildren:() => import('./authentication/authentication.module').then(m => m.AuthenticationModule)},
-    { path: '', component: LayoutComponent, canActivate: [AuthGuard], children: [
+    /* {path: 'auth', loadChildren:() => import('./authentication/authentication.module').then(m => m.AuthenticationModule)}, */
+    /* canActivate: [AuthGuard] */
+    { path: '', component: LayoutComponent, children: [
         // {path: 'items', loadChildren: './items/items.module#ItemsModule'},
         {path: 'items', loadChildren:() => import('./items/items.module').then(m => m.ItemsModule)},
         {path: 'forms', loadChildren:() => import('./forms/forms.module').then(m => m.FormsModule)},
