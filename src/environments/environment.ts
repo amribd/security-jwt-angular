@@ -4,10 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:8086/api',
-  baseHost: 'http://localhost:8086',
-  wsHost: 'ws://localhost:8086/stomp',
-  wssHost: 'wss://localhost:8086/stomp',
+  url: 'http://localhost:8080',
   token: ''
 };
 

@@ -13,7 +13,6 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   public baseUrl = environment.url;
-  public currentUrl: string;
 
   constructor(
     private http: HttpClient,
@@ -21,7 +20,6 @@ export class AuthService {
     private router: Router,
     private jwtHelperService: JwtHelperService
   ) {
-    this.currentUrl = '/user';
    }
 
    static get token() {
@@ -38,20 +36,23 @@ export class AuthService {
 
    public login(credential) {
      let headers = new Headers();
-      this.http.post(this.baseUrl + this.currentUrl + '/auth', {
+      this.http.post(this.baseUrl +  '/auth', {
         username: credential.username,
         password: credential.password
       })
               .subscribe(
               (token: any) => {
+                console.log(token);
                 sessionStorage.removeItem('counter');
-                AuthService.token = token.token;
+                AuthService.token = token.message;
                 this.router.navigate(['']);
-                environment.token = token.tokens;
+                environment.token = token.message;
                 this.isAuthenticated().subscribe(res => console.log('from isAuth' + res))
                 this.toastr.success('you are connected');
+                this.router.navigate(['/']);
               },
               (err) => {
+                console.log(err);
                 this.toastr.error('username or pasword are wrong');
               }
             );
