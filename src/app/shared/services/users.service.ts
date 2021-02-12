@@ -21,23 +21,11 @@ export class UsersService {
     this.token = 'Bearer ' + sessionStorage.getItem('token');
   }
 
-  public getAllUsers(): Observable<any> {
-    /* const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: this.token
-      })
-    }; */
-    console.log(this.jwtHelperService.isTokenExpired())
-
-    return this.http.get<any>(this.basePath + '/user/users');
-  }
-
   public saveUser(user): Observable<any> {
-    return this.http.post<any>(this.basePath + '/user/user', user);
+    return this.http.post<any>(this.basePath + '/api/v1/user', user);
   }
 
-  public countUsers(): Observable<any> {
-    return this.http.get<any>(this.basePath + '/user/count');
+  public getAllUsers(): Observable<any> {
+    return this.http.get<any>(this.basePath + "/api/v1/users");
   }
 }

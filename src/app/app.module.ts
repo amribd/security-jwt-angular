@@ -1,4 +1,3 @@
-import { ProgressWebsocketService } from './shared/services/progress-websocket.service';
 import { AuthService } from './shared/services/auth.service';
 import { ApiInterceptor } from './api-interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -11,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
-import { RxStompService } from '@stomp/ng2-stompjs';
 
 export function token() {
   return AuthService.token;
@@ -49,7 +47,7 @@ export function token() {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
       multi: true
-    }, RxStompService, ProgressWebsocketService
+    }
   ],
   bootstrap: [AppComponent]
 })
