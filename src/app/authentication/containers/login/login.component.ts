@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
   public get password() { return this.loginForm.get('password'); }
   initForm() {
     this.loginForm = this.fb.group({
-      username: ['user'],
-      password: ['password']
+      username: [''],
+      password: ['']
     });
   }
 

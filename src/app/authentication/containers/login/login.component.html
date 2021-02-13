@@ -1,17 +1,15 @@
 <div class="wrapper fadeInDown">
 
-    <div class="logo-block">
-        <img src="/assets/img/Logo-Nr-Oakland-small.png">
-    </div>
+    
     <div id="formContent">
         <!-- Tabs Titles -->
 
         <!-- Login Form -->
         <form (submit)="onSubmit()" [formGroup]="loginForm">
-            <input class="fadeIn second" formControlName="username" id="username" name="username" placeholder="IDENTIFIANT"
+            <input class="fadeIn second" formControlName="username" id="username" name="username" placeholder="USERNAME"
                    type="text">
-            <input class="fadeIn third" formControlName="password" id="password" name="login" placeholder="MOT DE PASSE"
-                   type="text">
+            <input class="fadeIn third" formControlName="password" id="password" name="login" placeholder="PASSWORD"
+                   type="password">
             <input class="fadeIn fourth" type="submit" value="CONNEXION">
         </form>
     </div>
