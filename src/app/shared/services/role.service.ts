@@ -16,5 +16,10 @@ export class RoleService {
     return this.http.get<any>(this.basePath + "/api/v1/roles");
   }
 
+  public addRole(role): Observable<any> {
+    return this.http.post<any>(this.basePath + "/api/v1/role", role);
+  }
+
+
 
 }

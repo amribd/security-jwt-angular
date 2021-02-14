@@ -1,1 +1,30 @@
-<p>create-role works!</p>
+<div class="row justify-content-around">
+    <div class="col-md-8">
+        <mat-card class="user-card">
+            <mat-card-title>Creation d'un Role</mat-card-title>
+            <mat-card-content>
+                <form (ngSubmit)="onSubmit()" [formGroup]="roleForm">
+
+
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="field" floatLabel="auto">
+                                <mat-label>name</mat-label>
+                                <input matInput formControlName="name">
+                                <mat-icon matSuffix>account_circle</mat-icon>
+                                </mat-form-field>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="row">
+                        <div class="col offset-9">
+
+                            <button  mat-raised-button type="submit">submit</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

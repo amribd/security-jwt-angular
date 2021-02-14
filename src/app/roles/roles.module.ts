@@ -1,3 +1,6 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './../shared/shared.module';
 import { MaterialsModule } from './../materials/materials.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +15,10 @@ import { CreateRoleComponent } from './containers/create-role/create-role.compon
   imports: [
     CommonModule,
     RolesRoutingModule,
-    MaterialsModule
+    MaterialsModule,
+    SharedModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ]
 })
 export class RolesModule { }

@@ -12,14 +12,13 @@ export class ListRolesComponent implements OnInit {
   public roleList: MatTableDataSource<any>;
   @ViewChild(MatPaginator, {static: false}) public paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) public sort: MatSort;
-  public displayedColumns = ['id', 'name'];
+  public displayedColumns = ['id', 'name', 'actions'];
 
   constructor( private roleService: RoleService) { }
 
   ngOnInit() {
 
     this.roleService.getAllRoles().subscribe((data: any) => {
-      console.log(data);
       this.roleList = new MatTableDataSource(data);
       this.roleList.paginator = this.paginator;
       this.roleList.sort = this.sort;
