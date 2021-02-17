@@ -1,0 +1,62 @@
+
+  <div class="row">
+    <div class="col-md-2 offset-md-8">
+      <button mat-raised-button class="add-button" color="primary" routerLink="upload" >
+        <mat-icon>add_box</mat-icon> Upload 
+      </button>
+    </div>
+  </div>
+
+      <div class="example-container mat-elevation-z8">
+        <table [dataSource]="filesList" mat-table matSort>
+  
+          
+          <ng-container matColumnDef="id" sticky>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
+            <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fileName" sticky>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+            <td *matCellDef="let element" mat-cell> {{element.fileName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="extension" sticky>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Extension</th>
+            <td *matCellDef="let element" mat-cell> {{element.extension}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="user" sticky>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> User</th>
+            <td *matCellDef="let element" mat-cell> {{element.user.userName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="downloadUrl" sticky>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> DownloadUrl</th>
+            <td *matCellDef="let element" mat-cell> {{element.downloadUrl}} </td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="actions" sticky>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Actions</th>
+            <td *matCellDef="let element">
+
+              <button mat-icon-button color='dark' (click)="downloadFile(element)"
+              matTooltip="download" matTooltipPosition="above"> 
+                <mat-icon>get_app</mat-icon>
+              </button>
+              <button mat-icon-button color='accent' (click)="updateItem(element.id)" matTooltip="edit"
+                matTooltipPosition="above"> 
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+  
+    
+  
+          <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+          <tr  *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[25,50,100]" [pageSize]="25" showFirstLastButtons></mat-paginator>
+      </div>
+   

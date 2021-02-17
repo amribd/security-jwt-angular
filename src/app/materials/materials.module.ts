@@ -1,3 +1,4 @@
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -19,7 +20,7 @@ import {
   MatSidenavModule,
   MatDividerModule,
   MatListModule,
-  MatCardModule,
+  MatCardModule
   
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -50,7 +51,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatInputModule,
     MatSnackBarModule,
     FlexLayoutModule,
-
+    MaterialFileInputModule
 
     
     
@@ -75,7 +76,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialFileInputModule
   ]
 })
 export class MaterialsModule { }
